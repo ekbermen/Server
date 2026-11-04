@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: notlio-runner
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      # Rastgele gizli anahtar Render tarafindan uretilir (Environment sekmesinden okuyabilirsin)
+      - key: RUNNER_KEY
+        generateValue: true
+      - key: RUN_TIMEOUT
+        value: "10"
+      - key: MAX_PARALLEL
+        value: "2"
